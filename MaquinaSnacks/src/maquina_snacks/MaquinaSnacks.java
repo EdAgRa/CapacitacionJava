@@ -50,7 +50,7 @@ public class MaquinaSnacks {
         return salir;
     }
 
-    private static void compraSnack(Scanner consola, List<Snack> productos){//Metodo para operar la opción 1 (Comprar Snack)
+    private static void compraSnack(Scanner consola, List<Snacks> productos){//Metodo para operar la opción 1 (Comprar Snack)
         System.out.println("Que snack quieres comprar (id)? ");
         var idSnack = Integer.parseInt(consola.nextLine());//Lee el valor ingresado por consola (Opción de Snack)
         var snackEncontrado = false;
