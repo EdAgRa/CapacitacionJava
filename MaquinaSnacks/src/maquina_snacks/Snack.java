@@ -14,37 +14,35 @@ public class Snack extends Snacks implements Serializable {
     }
 
     public Snack(String nombre, double precio){// constructor de dos argumentos (llave,valor)
-        this();// manda llamar el constructor vacío(linea 11), esto para no repetir la inicialización de la variable de idSnack
+        this();// manda llamar el constructor vacío(linea 12), esto para no repetir la inicialización de la variable de idSnack
         //inicializa los demás atributos
         this.nombre = nombre;
         this.precio = precio;
     }
 
     //genera los metodos Get y Set
-
-
     public static int getContadorSnack() {
         return contadorSnack;
     }
 
     public int getIdSnack() {
-        return this.idSnack;
-    }
-
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        return idSnack;
     }
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     //Genera Sobreescribo el metodo toString
