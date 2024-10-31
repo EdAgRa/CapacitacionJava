@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IntroduccionJava.iml" filepath="$PROJECT_DIR$/IntroduccionJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_Netbeans.iml" filepath="$PROJECT_DIR$/02_Netbeans.iml" />
     </modules>
   </component>
 </project>
