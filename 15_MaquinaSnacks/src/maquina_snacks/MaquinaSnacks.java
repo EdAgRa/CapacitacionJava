@@ -46,6 +46,7 @@ public class MaquinaSnacks {
         switch (opcion){//Evalúa la opción seleccionada y ejecuta según sea
             case 1 -> compraSnack(consola,productos);
             case 2 -> mostrarTicket(productos);
+            case 3 -> agregarSnack(consola);
 
         }
         return salir;
@@ -78,5 +79,17 @@ public class MaquinaSnacks {
         }
         ticket += "\n\t-Total -> $"+total;
         System.out.println(ticket);
+    }
+
+    private static void agregarSnack(Scanner consola){
+        System.out.print("Nombre del nuevo snack: ");
+        var nombre  = consola.nextLine();
+        System.out.print("Precio del nuevo snack: ");
+        var precio  = Double.parseDouble(consola.nextLine());
+        Snacks.agregarSnack(new Snack(nombre,precio));
+        System.out.println("El snack se agrego correctamente");
+        Snacks.mostrarSnacks();
+
+
     }
 }
