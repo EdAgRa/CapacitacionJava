@@ -93,7 +93,5 @@ public class MaquinaSnacks {
         Snacks.agregarSnack(new Snack(nombre,precio));
         System.out.println("El snack se agrego correctamente");
         Snacks.mostrarSnacks();
-
-
     }
 }
