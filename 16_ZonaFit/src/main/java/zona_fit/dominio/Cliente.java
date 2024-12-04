@@ -8,7 +8,7 @@ public class Cliente {
     private String apellido;
     private int membresia;
 
-    private Cliente(){}//El constructor vació
+    public Cliente(){}//El constructor vació
 
     public Cliente(int id){//constructor solo con el ID
         this.id = id;
