@@ -1,6 +1,7 @@
 package zona_fit.datos;
 
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import zona_fit.conexion.Conexion;
 import zona_fit.dominio.Cliente;
 
@@ -53,8 +54,8 @@ public class ClienteDAO implements IClienteDao{
     public boolean buscarCliente(Cliente cliente) {
         PreparedStatement ps;//Esto para preparar la sentencia de base de datos
         ResultSet rs;// esta interface tiene el resultado de la consulta
-        var con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
-        var sql = "SELECT * " +
+        Connection con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
+        String sql = "SELECT * " +
                   "  FROM cliente " +
                   " WHERE id = ?" ;//solo recupera un regristro
         try {
@@ -85,8 +86,8 @@ public class ClienteDAO implements IClienteDao{
     @Override
     public boolean agregarCliente(Cliente cliente) {
         PreparedStatement ps;//Esto para preparar la sentencia de base de datos
-        var con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
-        var sql = "INSERT INTO cliente(nombre,apellido,membresia) " +
+        Connection con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
+        String sql = "INSERT INTO cliente(nombre,apellido,membresia) " +
                   "             VALUES(?,?,?)";//inserta un registro
         try {
             ps = con.prepareStatement(sql);
@@ -114,8 +115,8 @@ public class ClienteDAO implements IClienteDao{
     @Override
     public boolean modificarCliente(Cliente cliente) {
         PreparedStatement ps;//Esto para preparar la sentencia de base de datos
-        var con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
-        var sql = "UPDATE cliente " +
+        Connection con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
+        String sql = "UPDATE cliente " +
                   "   SET  nombre = ?,"+
                         " apellido = ?,"+
                         " membresia = ?"+
@@ -146,14 +147,15 @@ public class ClienteDAO implements IClienteDao{
     @Override
     public boolean eliminarCliente(Cliente cliente) {
         PreparedStatement ps;//Esto para preparar la sentencia de base de datos
-        var con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
-        var sql = "DELETE " +
+        Connection con = getConexion();//Objeto de conexión de manera abreviada usando (import static zona_fit.conexion.Conexion.getConexion;)
+        String sql = "DELETE " +
                   "  FROM cliente " +
                   " WHERE id = ?" ;//solo borra un regristro
         try {
             ps = con.prepareStatement(sql);//prepara la consulta
             ps.setInt(1, cliente.getId());//Envía un parametro específico a la consulta
             ps.execute();
+            return true;
         }
         catch (Exception e) {
             System.out.println("Error: Borrando cliente por id; "+e.getMessage());
@@ -174,7 +176,7 @@ public class ClienteDAO implements IClienteDao{
     public static void main(String[] args) {
         IClienteDao clienteDao = new ClienteDAO();
 // buscar cliente
-//        var cliente1 = new Cliente(2);
+//        var cliente1 = new Cliente(4);
 //        System.out.println("Cliente antes de la búsqueda: "+cliente1);
 //        var encontrado = clienteDao.buscarCliente(cliente1);
 //        if(encontrado)
@@ -196,7 +198,7 @@ public class ClienteDAO implements IClienteDao{
 //        else
 //            System.out.println("\nCliente No Agregado: ");
 // borrando cliente
-        var borrarCliente = new Cliente(7);
+        var borrarCliente = new Cliente(13);
         var borrado = clienteDao.eliminarCliente(borrarCliente);
         if(borrado)
             System.out.println("\nCliente Borrado: "+borrarCliente);
