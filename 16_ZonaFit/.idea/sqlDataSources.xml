@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="b86876aa-5b94-46d5-9f0a-4d8b269e9219" name="@localhost Mapping">
+      <data-sources db="084078b9-b4b2-4899-af24-a4d89068de01" />
+      <scope>
+        <node kind="schema" qname="zona_fit_db" />
+      </scope>
+    </mapping>
+  </component>
+</project>
