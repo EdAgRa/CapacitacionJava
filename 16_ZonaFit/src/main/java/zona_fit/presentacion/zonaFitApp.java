@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class zonaFitApp {
     public static void main(String[] args) {//Ejecucion del programa
+
         ejecutaZonaFitApp();//metodo con la estructura de ejecución
     }
     private static void ejecutaZonaFitApp() {//metodo con la estructura de ejecución
@@ -15,7 +16,7 @@ public class zonaFitApp {
         IClienteDao clienteDAO = new ClienteDAO();//Objeto de la clase ClienteDAO interacciones DB
         while (!salir){
             try {
-              var opcion =  mostrarMenu(consola);//metodo para listar las opciones de menu
+                var opcion =  mostrarMenu(consola);//metodo para listar las opciones de menu
                 salir = ejecutarOpciones(consola, opcion, clienteDAO);// metodo para capturar la opcion de menu y da como saliea true o false para determinar la salida
             }
             catch (Exception e) {
@@ -24,6 +25,7 @@ public class zonaFitApp {
             System.out.println();//salto de linea después de mostrar el menu
         }
     }
+
     private static int mostrarMenu(Scanner consola) {
         System.out.print("""
                 *** ZONA FIT ***
