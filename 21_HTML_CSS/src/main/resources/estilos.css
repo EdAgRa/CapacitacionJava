@@ -1,0 +1,25 @@
+/*3. CSS - con archivo */
+body{
+    background-color: black;
+    color: white;
+}
+
+/*links */
+a{
+    color: aquamarine;
+}
+
+a:hover{
+    color: yellow;
+}
+
+/*clases - selectores*/
+.texto-centrado{
+    text-align: center;
+}
+
+.titulo{
+    font-size: 200%;
+}
+
+
