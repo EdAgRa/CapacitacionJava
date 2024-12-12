@@ -84,32 +84,32 @@ public class ZonaFitForma extends JFrame {
     }
 
     private void guardarCliente() {
-        if (nombreTexto.getText().equals("")) {//valua si el campo nombre esta vacío
-            mostarMensaje("Ingrese el Nombre del Cliente");//metodo para ventana emergente
-            nombreTexto.requestFocus();//ubica el foco en la caja para el  nombre
+        if (nombreTexto.getText().equals("")) {//evalúa si el campo nombre está vacío
+            mostrarMensaje("Ingrese el Nombre del Cliente");//método para ventana emergente
+            nombreTexto.requestFocus();//ubica el foco en la caja para el nombre
             return;
         }
         if (membresiaTexto.getText().equals("")) {
-            mostarMensaje("Ingrese el valor de la Membresía del Cliente");//metodo para ventana emergente
+            mostrarMensaje("Ingrese el valor de la Membresía del Cliente");//método para ventana emergente
             membresiaTexto.requestFocus();//ubica el foco en la caja para la membresía
             return;
         }
 
         var nombre = nombreTexto.getText();//captura el nombre en una variable
         var apellido = apellidoTexto.getText();//captura el apellido en una variable
-        var membresia = Integer.parseInt(membresiaTexto.getText());//captura y combierte en Integer el apellido en una variable
+        var membresia = Integer.parseInt(membresiaTexto.getText());//captura y convierte en Integer el apellido en una variable
         var cliente = new Cliente(this.idCliente,nombre,apellido,membresia);//Objeto de tipo cliente para procesar los datos
-//se simplifica el codigo
-//        cliente.setId(this.idCliente);//Se obtiene del objeto creado y null==insert, !=null==actualizar
+//se simplifica el código
+//        cliente.setId(this.idCliente);//Se obtiene del objeto creado y null==insert-!=null==actualizar
 //        cliente.setNombre(nombre);
 //        cliente.setApellido(apellido);
 //        cliente.setMembresia(membresia);
 
         this.clienteServicio.guardarCliente(cliente);//LLama el servicio y guarda los datos en el objeto cliente
         if (this.idCliente==null)
-            mostarMensaje("Cliente Agregado!");
+            mostrarMensaje("Cliente Agregado!");
         else
-            mostarMensaje("Cliente Actualizado!");
+            mostrarMensaje("Cliente Actualizado!");
 
         limpiarFormulario();//limpia el formulario
         listarClientes();//recarga la tabla
@@ -121,12 +121,12 @@ public class ZonaFitForma extends JFrame {
             var cliente = new Cliente();
             cliente.setId(this.idCliente);
             this.clienteServicio.eliminarCliente(cliente);
-            mostarMensaje("Cliente con Id: "+this.idCliente+", Borrado!");
+            mostrarMensaje("Cliente con Id: "+this.idCliente+", Borrado!");
             limpiarFormulario();//limpia el formulario
             listarClientes();//recarga la tabla
         }
         else
-            mostarMensaje("Seleccione el cliente que desea borrar!");
+            mostrarMensaje("Seleccione el cliente que desea borrar!");
     }
 
     private void cargarClienteSelecionado() {
@@ -138,8 +138,8 @@ public class ZonaFitForma extends JFrame {
             this.nombreTexto.setText(nombre);//Se inserta en la caja nombre del formulario
             var apellido = clientesTabla.getModel().getValueAt(renglon,2).toString();
             this.apellidoTexto.setText(apellido);//Se inserta en la caja apellido del formulario
-            var menbresia = clientesTabla.getModel().getValueAt(renglon,3).toString();
-            this.membresiaTexto.setText(menbresia);//Se inserta en la caja membresía del formulario
+            var membresia = clientesTabla.getModel().getValueAt(renglon,3).toString();
+            this.membresiaTexto.setText(membresia);//Se inserta en la caja membresía del formulario
         }
     }
 
@@ -148,10 +148,10 @@ public class ZonaFitForma extends JFrame {
        apellidoTexto.setText("");
        membresiaTexto.setText("");
        idCliente = null;
-       this.clientesTabla.getSelectionModel().clearSelection();//Quita el focus del regestro seleccionado
+       this.clientesTabla.getSelectionModel().clearSelection();//Quita el focus del registro seleccionado
     }
 
-    private void mostarMensaje(String mensaje) {
+    private void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);//Muestra el mensaje
     }
 

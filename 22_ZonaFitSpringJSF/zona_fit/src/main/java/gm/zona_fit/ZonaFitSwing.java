@@ -15,12 +15,12 @@ public class ZonaFitSwing {
     public static void main(String[] args) {
         FlatDarculaLaf.setup();//Tema Oscuro
         ConfigurableApplicationContext contextSpring = //Instancia de la fabrica de Spring
-                new SpringApplicationBuilder(ZonaFitForma.class)//Inyecta el servicio a la clase
+                new SpringApplicationBuilder(ZonaFitSwing.class)//Inyecta el servicio a la clase
                         .headless(false)//Para decir que NO es web
                         .web(WebApplicationType.NONE)//Para decir que NO es web
                         .run(args);
 
-        SwingUtilities.invokeLater(() -> { //Crea el Objeto Swing
+        SwingUtilities.invokeLater(() -> { //Crea el Objto Swing
             ZonaFitForma zonaFitForma = contextSpring.getBean(ZonaFitForma.class);
             zonaFitForma.setVisible(true);
         });
