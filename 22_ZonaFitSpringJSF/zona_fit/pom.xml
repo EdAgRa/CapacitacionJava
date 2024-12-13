@@ -1,91 +1,101 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.0</version>
-		<relativePath/>
-	</parent>
-	<groupId>gm</groupId>
-	<artifactId>zona_fit</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>zona_fit</name>
-	<description>Sistema de Zona Fit</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+<!--        <version>3.4.0</version>  cambio de version por una menor-->
+			<version>3.1.2</version>
+        <relativePath/>
+    </parent>
+    <groupId>gm</groupId>
+    <artifactId>zona_fit</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>zona_fit</name>
+    <description>Sistema de Zona Fit</description>
 
-	<properties>
-		<java.version>21</java.version> <!-- Asegúrate de usar una versión de Java soportada -->
-	</properties>
+    <properties>
+        <java.version>21</java.version> <!-- Asegúrate de usar una versión de Java soportada -->
+		<joinfaces.version>5.1.2</joinfaces.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5</version>
+        </dependency>
+
+		<!-- Join Faces -->
 		<dependency>
-			<groupId>com.formdev</groupId>
-			<artifactId>flatlaf</artifactId>
-			<version>3.5</version>
+			<groupId>org.joinfaces</groupId>
+			<artifactId>primefaces-spring-boot-starter</artifactId>
+<!--			<version>5.3.0</version> pra robar despues -->
 		</dependency>
+
+		<!-- Spring Boot WEB-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
 		<!-- Spring Data JPA -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
 
-		<!-- Conector MySQL -->
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+        <!-- Conector MySQL -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.1.0</version>
+            <scope>runtime</scope>
+        </dependency>
 
-		<!--	Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.30</version> <!-- Asegúrate de tener la última versión -->
-			<scope>provided</scope>
-		</dependency>
+        <!--	Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- Asegúrate de tener la última versión -->
+            <scope>provided</scope>
+        </dependency>
 
-		<!-- Spring Boot Test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <!-- Spring Boot Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-		<!-- Maven Compiler Plugin -->
-<!--		<plugin>-->
-	<!--		<groupId>org.apache.maven.plugins</groupId>-->
-		<!--		<artifactId>maven-compiler-plugin</artifactId>-->
-		<!--		<version>3.10.1</version>-->
-		<!--		<configuration>-->
-		<!--		<source>${java.version}</source>-->
-		<!--		<target>${java.version}</target>-->
-	<!--		<annotationProcessorPaths>-->
-	<!--		<path>-->
-	<!--		<groupId>org.projectlombok</groupId>-->
-	<!--		<artifactId>lombok</artifactId>-->
-	<!--		<version>1.18.30</version>-->
-	<!--		</path>-->
-	<!--		</annotationProcessorPaths>-->
-	<!--		</configuration>-->
-<!--		</plugin>-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.joinfaces</groupId>
+				<artifactId>joinfaces-dependencies</artifactId>
+				<version>${joinfaces.version}</version><!-- esto toma la version que ya se determinó-->
+				<type>pom</type>
+                <scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
-			<!-- Spring Boot Plugin -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

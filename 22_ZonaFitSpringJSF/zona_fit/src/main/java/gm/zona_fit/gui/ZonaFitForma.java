@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-@Component
+//@Component
 public class ZonaFitForma extends JFrame {
     private JPanel panelPrincipal;
     private JTable clientesTabla;
@@ -25,7 +25,7 @@ public class ZonaFitForma extends JFrame {
     private DefaultTableModel tablaModeloClientes;//objeto que maneja los datos de la tabla
     private Integer idCliente; // objeto para el id valor default null
 
-    @Autowired
+//    @Autowired
     public ZonaFitForma(ClienteServicio clienteServicio) {
         this.clienteServicio = clienteServicio;
         iniciarForma();
