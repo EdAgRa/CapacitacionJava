@@ -13,7 +13,7 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 
 public class Empleado {
     @Id
@@ -23,4 +23,45 @@ public class Empleado {
     String departamento;
     Double sueldo;
 
+    @Override
+    public String toString() {
+        return "Empleado{idEmpleado=" + idEmpleado +
+                ", nombreEmpleado='" + nombreEmpleado +
+                "', departamento='" + departamento +
+                ", sueldo='"+sueldo+"'}";
+    }
+
+    /*// Getters y setters
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+*/
 }
