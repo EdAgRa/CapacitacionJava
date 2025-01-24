@@ -5,7 +5,6 @@
     <c:url value="${application.contextPaht}/agregar"/>
 </c:set>
 
-
 <div class="container">
     <nav class="navbar navbar-expand-lg" style="background-color:#DDA853;">
         <div class="container-fluid">

@@ -13,6 +13,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Departamento</th>
                         <th scope="col">Sueldo</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,10 +26,25 @@
                                 <fmt:setLocale value="es_US"/>
                                 <fmt:formatNumber type="currency" currencySymbol="$" value="${empleado.sueldo}"/>
                             </td>
+                            <td class="text-center">
+                                <c:set var="urlEditar">
+                                    <c:url value="${application.context}/editar">
+                                        <c:param name="idEmpleado" value="${empleado.idEmpleado}"/>
+                                    </c:url>
+                                </c:set>
+                                <a href="${urlEditar}" class="btn btn-warning btn-sm me-3">Editar</a>
+                                <c:set var="urlEliminar">
+                                    <c:url value="${application.context}/eliminar">
+                                        <c:param name="idEmpleado" value="${empleado.idEmpleado}"/>
+                                    </c:url>
+                                </c:set>
+                                <a href="${urlEliminar}" class="btn btn-danger btn-sm me-3">Eliminar</a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
         </div>
+        <div class="text-center p-3" style="background-color: #DDA853;"></div>
     </div>
 <%@include file="comunes/pie-pagina.jsp"%>
