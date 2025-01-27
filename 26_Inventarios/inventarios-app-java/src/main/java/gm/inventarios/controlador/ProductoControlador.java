@@ -21,7 +21,7 @@ public class ProductoControlador {
 
     @Autowired
     private ProductoServicio productoServicio;
-
+    //http://localhost:8080/inventario-app/v1/productos
     @GetMapping("/productos")
     public List<Producto> obtenerProductos() {
         List<Producto> productos = this.productoServicio.listarProductos();

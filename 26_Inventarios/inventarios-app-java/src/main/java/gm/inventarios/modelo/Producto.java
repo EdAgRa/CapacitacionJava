@@ -23,4 +23,6 @@ public class Producto {
     Double precio;
     Integer existencia;
 
+
+
 }
