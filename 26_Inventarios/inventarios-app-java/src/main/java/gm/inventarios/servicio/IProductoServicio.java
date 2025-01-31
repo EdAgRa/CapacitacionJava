@@ -10,8 +10,8 @@ public interface IProductoServicio {
 
     public Producto buscarProductoPorId(Integer idProducto);
 
-    public void guardarProducto(Producto producto);
+    public Producto guardarProducto(Producto producto);
 
-    public void eliminarProducto(Integer idProducto);
+    public void eliminarProductoPorId(Integer idProducto);
 
 }
